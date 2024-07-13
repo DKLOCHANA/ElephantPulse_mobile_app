@@ -49,7 +49,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '367885456902',
     projectId: 'test2-f16fb',
     authDomain: 'test2-f16fb.firebaseapp.com',
-    databaseURL: 'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'test2-f16fb.appspot.com',
   );
 
@@ -58,7 +59,8 @@ class DefaultFirebaseOptions {
     appId: '1:367885456902:android:169bde855e1079d7931587',
     messagingSenderId: '367885456902',
     projectId: 'test2-f16fb',
-    databaseURL: 'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'test2-f16fb.appspot.com',
   );
 
@@ -67,7 +69,8 @@ class DefaultFirebaseOptions {
     appId: '1:367885456902:ios:b012da3dec79f773931587',
     messagingSenderId: '367885456902',
     projectId: 'test2-f16fb',
-    databaseURL: 'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'test2-f16fb.appspot.com',
     iosBundleId: 'com.example.trackElephants',
   );
@@ -77,7 +80,8 @@ class DefaultFirebaseOptions {
     appId: '1:367885456902:ios:26b68e005674d162931587',
     messagingSenderId: '367885456902',
     projectId: 'test2-f16fb',
-    databaseURL: 'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://test2-f16fb-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'test2-f16fb.appspot.com',
     iosBundleId: 'com.example.trackElephants.RunnerTests',
   );

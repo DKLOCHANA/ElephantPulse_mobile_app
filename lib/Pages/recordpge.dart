@@ -43,7 +43,10 @@ class _RecordsPageState extends State<RecordsPage> {
                   children: [
                     Icon(Icons.history_edu),
                     SizedBox(width: 10),
-                    Text("Records History", style: TextStyle(fontSize: 20,))
+                    Text("Records History",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ))
                   ],
                 ),
               ),
@@ -92,9 +95,8 @@ class _RecordsPageState extends State<RecordsPage> {
                 return ListView.builder(
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
-                    final record = Detections.fromMap(
-                        snapshot.data!.docs[index].data()
-                            as Map<String, dynamic>);
+                    final record = Detections.fromMap(snapshot.data!.docs[index]
+                        .data() as Map<String, dynamic>);
                     return ListTile(
                       title: Text('Elephant detected at location'),
                       subtitle: Column(
@@ -106,7 +108,6 @@ class _RecordsPageState extends State<RecordsPage> {
                           Text('comment: ${record.comment}'),
                           Text('longitude: ${record.longitude}'),
                           Text('latitude: ${record.latitude}'),
-                         
                         ],
                       ),
                     );

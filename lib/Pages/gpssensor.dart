@@ -9,14 +9,17 @@ class GpsSensorPage extends StatefulWidget {
 }
 
 class _GpsSensorPageState extends State<GpsSensorPage> {
-  late DatabaseReference _databaseReference;// Reference to Firebase Realtime Database
-  int? _resultCode; // Variable to store the result code received from the database
+  late DatabaseReference
+      _databaseReference; // Reference to Firebase Realtime Database
+  int?
+      _resultCode; // Variable to store the result code received from the database
 
   @override
   void initState() {
     super.initState();
     // Listen to changes in the 'ResultCode' node and update the UI accordingly
-    _databaseReference = FirebaseDatabase.instance.reference().child('dev_data');
+    _databaseReference =
+        FirebaseDatabase.instance.reference().child('dev_data');
     _databaseReference.child('ResultCode').onValue.listen((event) {
       if (event.snapshot.value != null) {
         setState(() {
@@ -58,193 +61,199 @@ class _GpsSensorPageState extends State<GpsSensorPage> {
           ),
           SizedBox(height: 10),
           Text(
-               'Sensors current status is:',
-                style: TextStyle(
-                fontSize: 20,
-                ),
-              ),
+            'Sensors current status is:',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
           SizedBox(height: 20),
           Center(
             child: _resultCode == null
                 ? CircularProgressIndicator()
-                : Text('CODE $_resultCode',
-                    style: TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600
-                    ),),
+                : Text(
+                    'CODE $_resultCode',
+                    style: TextStyle(fontSize: 21, fontWeight: FontWeight.w600),
+                  ),
           ),
           SizedBox(height: 30),
           Text(
-               'What is mean by this code?',
-                style: TextStyle(
-                fontSize: 18,
-                ),
-              ),
-
+            'What is mean by this code?',
+            style: TextStyle(
+              fontSize: 18,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Table(
-            border: TableBorder.all(),
-            children: [
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('Code',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600  
-                              ),
-                            textAlign: TextAlign.center,
-                            ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('Result',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600  
-                              ),
-                            textAlign: TextAlign.center,
-                            ),
-                    ),
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('CODE 0',
-                            style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            textAlign: TextAlign.center,
-                            ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('Distance sensor hardware fault',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            
-                            ),
-                    ),
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('CODE 1',
+              border: TableBorder.all(),
+              children: [
+                TableRow(
+                  children: [
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Code',
                           style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            textAlign: TextAlign.center,                     
+                              fontSize: 18, fontWeight: FontWeight.w600),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('Failed to Connect',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            
-                            ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Result',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w600),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('CODE 2',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            textAlign: TextAlign.center,),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'CODE 0',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('GPS sensor hardware fault',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Distance sensor hardware fault',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('CODE 3',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            textAlign: TextAlign.center,),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'CODE 1',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('All sensors working perfectly',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Failed to Connect',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('CODE 4',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                            textAlign: TextAlign.center,),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'CODE 2',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('GPS location not updating',
-                      style: TextStyle(
-                                fontSize: 15, 
-                              ),
-                           ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'GPS sensor hardware fault',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              // Add more TableRow widgets for additional rows
-            ],
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'CODE 3',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'All sensors working perfectly',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'CODE 4',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'GPS location not updating',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                // Add more TableRow widgets for additional rows
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
-      

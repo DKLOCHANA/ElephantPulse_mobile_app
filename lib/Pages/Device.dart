@@ -47,23 +47,12 @@ class Device extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LivestreamScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => LivestreamScreen()),
                         );
                       },
                     ),
                   ),
-                  // Card(
-                  //   child: ListTile(
-                  //     leading: Icon(Icons.swap_horiz_outlined),
-                  //     title: Text('Distance Sensor'),
-                  //     onTap: () {
-                  //       Navigator.push(
-                  //         context,
-                  //         MaterialPageRoute(builder: (context) => distancesensor()),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
                   Card(
                     child: ListTile(
                       leading: Icon(Icons.gps_fixed_outlined),
@@ -71,7 +60,8 @@ class Device extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => GpsSensorPage()),
+                          MaterialPageRoute(
+                              builder: (context) => GpsSensorPage()),
                         );
                       },
                     ),
@@ -80,7 +70,6 @@ class Device extends StatelessWidget {
               ),
             ),
           ),
-          
         ],
       ),
     );

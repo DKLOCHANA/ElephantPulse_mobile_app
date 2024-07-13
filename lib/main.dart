@@ -9,13 +9,12 @@ import 'Pages/EmergencyContact.dart';
 import 'Pages/ReportPage.dart';
 import 'widgets/itemDashboard.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MaterialApp(debugShowCheckedModeBanner: false,home: Home()));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Home()));
 }
 
 class Home extends StatelessWidget {
@@ -33,7 +32,6 @@ class Home extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Color.fromRGBO(13, 146, 118, 5),
-        
       ),
       body: Column(
         children: [
@@ -82,25 +80,22 @@ class Home extends StatelessWidget {
                         'Report', Icons.report_outlined, Colors.lightGreen, () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => ReportPage()),
+                        MaterialPageRoute(builder: (context) => ReportPage()),
                       );
                     }),
-                    itemDashboard(
-                        'Emergency', Icons.sos, Colors.lightGreen, () {
+                    itemDashboard('Emergency', Icons.sos, Colors.lightGreen,
+                        () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => EmergencyContactPage()),
                       );
                     }),
-                    
-                    itemDashboard(
-                        'About Us', Icons.help_center_outlined, Colors.lightGreen, () {
+                    itemDashboard('About Us', Icons.help_center_outlined,
+                        Colors.lightGreen, () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => AboutUsPage()),
+                        MaterialPageRoute(builder: (context) => AboutUsPage()),
                       );
                     }),
                   ],

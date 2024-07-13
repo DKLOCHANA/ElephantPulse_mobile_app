@@ -33,11 +33,12 @@ class _AddRecordState extends State<AddRecord> {
         centerTitle: true,
         backgroundColor: Color.fromRGBO(13, 146, 118, 5),
       ),
-      body: SingleChildScrollView( // SingleChildScrollView to enable scrolling if the content overflows
+      body: SingleChildScrollView(
+        // SingleChildScrollView to enable scrolling if the content overflows
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Form(
-            key: _formKey,// Assign global key for form validation
+            key: _formKey, // Assign global key for form validation
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -67,25 +68,33 @@ class _AddRecordState extends State<AddRecord> {
                   'Location *',
                   style: TextStyle(fontSize: 16),
                 ),
-                DropdownButton<String>(// DropdownButton for location selection
+                DropdownButton<String>(
+                  // DropdownButton for location selection
                   value: _selectedLocation,
                   onChanged: (String? value) {
                     setState(() {
                       _selectedLocation = value;
-                      _locationErrorMessage = null; // Clear error message when location is selected
+                      _locationErrorMessage =
+                          null; // Clear error message when location is selected
                     });
                   },
                   // Mapping items to DropdownMenuItem
-                  items: <String?>['Maho-Galgamuwa', 'Galgamuwa-Tambuththegama', 'Tambuththegama-Anuradhapura'].map<DropdownMenuItem<String>>((String? value) {
+                  items: <String?>[
+                    'Maho-Galgamuwa',
+                    'Galgamuwa-Tambuththegama',
+                    'Tambuththegama-Anuradhapura'
+                  ].map<DropdownMenuItem<String>>((String? value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value ?? ''),
                     );
                   }).toList(),
                 ),
-                if (_locationErrorMessage != null) // Show error message if location is not selected
+                if (_locationErrorMessage !=
+                    null) // Show error message if location is not selected
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4), // Adjust vertical padding as needed
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 4), // Adjust vertical padding as needed
                     child: Text(
                       _locationErrorMessage!,
                       style: TextStyle(color: Colors.red),
@@ -115,12 +124,15 @@ class _AddRecordState extends State<AddRecord> {
                           String username = _usernameController.text;
                           String location = _selectedLocation!;
                           String comment = _commentController.text;
-                  
+
                           // Generate current date and time
                           DateTime now = DateTime.now();
-                          String detectedDate = DateFormat('yyyy-MM-dd').format(now);
-                          String detectedTime = DateFormat('HH:mm:ss').format(now);
-                          String timestamp = DateFormat('yyyyMMdd-HHmmss').format(now);
+                          String detectedDate =
+                              DateFormat('yyyy-MM-dd').format(now);
+                          String detectedTime =
+                              DateFormat('HH:mm:ss').format(now);
+                          String timestamp =
+                              DateFormat('yyyyMMdd-HHmmss').format(now);
                           //send data to firestore
                           _firestore.collection('Detections_mobile').add({
                             'username': username,
@@ -138,11 +150,12 @@ class _AddRecordState extends State<AddRecord> {
                             _selectedLocation = null;
                             _commentController.clear();
                             _locationErrorMessage = null;
-        
+
                             setState(() {
-                              _selectedLocation = null; // Clear the dropdown selection
+                              _selectedLocation =
+                                  null; // Clear the dropdown selection
                             });
-        
+
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text('Submitted successfully!'),
@@ -155,7 +168,8 @@ class _AddRecordState extends State<AddRecord> {
                         }
                       }
                     },
-                    child: Text('Submit', style: TextStyle(color: Colors.green, fontSize: 18)),
+                    child: Text('Submit',
+                        style: TextStyle(color: Colors.green, fontSize: 18)),
                   ),
                 ),
               ],

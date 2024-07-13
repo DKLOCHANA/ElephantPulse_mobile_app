@@ -1,17 +1,16 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class EmergencyContactPage extends StatelessWidget {// URIs for emergency contact numbers
+class EmergencyContactPage extends StatelessWidget {
+  // URIs for emergency contact numbers
   final Uri dialNumber = Uri(scheme: 'tel', path: '119');
   final Uri dialNumber2 = Uri(scheme: 'tel', path: '110');
   final Uri dialNumber3 = Uri(scheme: 'tel', path: '1971');
 
   EmergencyContactPage({Key? key});
   // Function to initiate a call to the specified number
-  Future<void> _callNumber(Uri number) async { 
-    await launch(number.toString()); 
+  Future<void> _callNumber(Uri number) async {
+    await launch(number.toString());
   }
 
   @override
@@ -46,7 +45,8 @@ class EmergencyContactPage extends StatelessWidget {// URIs for emergency contac
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 40.0, horizontal: 15.0),
-            child: ListView( //show contacts in a list
+            child: ListView(
+              //show contacts in a list
               shrinkWrap: true, // Shrink-wrap the ListView to its contents
               children: [
                 Card(
@@ -54,7 +54,8 @@ class EmergencyContactPage extends StatelessWidget {// URIs for emergency contac
                     leading: Icon(Icons.local_police),
                     title: Text('POLICE EMERGENCY HOTLINE'),
                     subtitle: Text('118/119'),
-                    onTap: () => _callNumber(dialNumber),// Call function on tap
+                    onTap: () =>
+                        _callNumber(dialNumber), // Call function on tap
                   ),
                 ),
                 Card(
